@@ -34,8 +34,14 @@ const run = async () => {
       gitTagVersion: getInput('git-tag-version'),
     })
     await publish({ tag: getInput('tag') })
-  } catch {
-    console.log({ error })
+  } catch (e) {
+    if (
+      !error.includes(
+        'You cannot publish over the previously published versions',
+      )
+    )
+      throw e
+    run()
   }
 }
 
