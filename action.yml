@@ -1,0 +1,17 @@
+name: 'prerelease-action'
+description: 'Publish disposable pre-releases'
+
+inputs:
+  preid:
+    description: 'Pre-release id'
+    default: 'develop'
+  git-tag-version:
+    description: 'Commit and tag the version change'
+    default: false
+  tag:
+    description: 'Registers the published package with the given tag'
+    default: 'next'
+
+runs:
+  using: 'node12'
+  main: 'index.js'

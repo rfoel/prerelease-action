@@ -1,0 +1,26 @@
+{
+  "name": "prerelease-action",
+  "version": "0.0.0",
+  "description": "Publish disposable pre-releases",
+  "main": "index.js",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rfoel/prerelease-action.git"
+  },
+  "author": "Rafael Franco <rafaelfr@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rfoel/prerelease-action/issues"
+  },
+  "homepage": "https://github.com/rfoel/prerelease-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/exec": "^1.0.4"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
+  }
+}
