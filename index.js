@@ -4,8 +4,8 @@ const { exec } = require('@actions/exec')
 const { getInput } = require('@actions/core')
 
 fs.writeFileSync(
-  path.join(process.env.HOME || '~', '.npmrc'),
-  `//registry.npmjs.org/:_authToken=${getInput('authToken')}`,
+  path.join(process.env.GITHUB_WORKSPACE, '.npmrc'),
+  `//registry.npmjs.org/:_authToken=${process.env.NPM_TOKEN}`,
 )
 
 const version = ({ preid, gitTagVersion }) =>
