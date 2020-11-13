@@ -13,7 +13,7 @@ Publish disposable pre-releases
 ## Usage
 
 ```yml
-uses: rfoel/prerelease-action
+uses: rfoel/prerelease-action@master
 with:
   preid: 'development'
   git-tag-version: false
