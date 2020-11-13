@@ -2,9 +2,6 @@ name: 'prerelease-action'
 description: 'Publish disposable pre-releases'
 
 inputs:
-  authToken:
-    description: 'Auth token that will be used to publish the package'
-    required: true
   preid:
     description: 'Pre-release id'
     default: 'develop'
