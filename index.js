@@ -8,6 +8,15 @@ fs.writeFileSync(
   `//registry.npmjs.org/:_authToken=${process.env.NPM_TOKEN}`,
 )
 
+let error
+const options = {
+  listeners: {
+    stderr: data => {
+      error += data.toString()
+    },
+  },
+}
+
 const version = ({ preid, gitTagVersion }) =>
   exec('npm', [
     'version',
@@ -16,7 +25,7 @@ const version = ({ preid, gitTagVersion }) =>
     `--git-tag-version=${gitTagVersion}`,
   ])
 
-const publish = ({ tag }) => exec('npm', ['publish', '--tag', tag])
+const publish = ({ tag }) => exec('npm', ['publish', '--tag', tag], options)
 
 const run = async () => {
   try {
@@ -25,7 +34,7 @@ const run = async () => {
       gitTagVersion: getInput('git-tag-version'),
     })
     await publish({ tag: getInput('tag') })
-  } catch (error) {
+  } catch {
     console.log({ error })
   }
 }
