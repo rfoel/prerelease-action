@@ -27,7 +27,6 @@ const run = async () => {
     await publish({ tag: getInput('tag') })
   } catch (error) {
     console.log(error)
-    run()
   }
 }
 
