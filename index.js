@@ -1,5 +1,12 @@
+const fs = require('fs')
+const path = require('path')
 const { exec } = require('@actions/exec')
 const { getInput } = require('@actions/core')
+
+fs.writeFileSync(
+  path.join(process.env.HOME || '~', '.npmrc'),
+  `//registry.npmjs.org/:_authToken=${getInput('authToken')}`,
+)
 
 const version = ({ preid, gitTagVersion }) =>
   exec('npm', [
